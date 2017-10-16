@@ -2,15 +2,55 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class PlayerHitting : MonoBehaviour {
+public class PlayerMelee : MonoBehaviour {
 
-	// Use this for initialization
-	void Start () {
-		
+    
+    public int damagePerHit = 0;
+    //TODO: Asking the weapon's damage
+
+    public float timeBetweenHits = 0.5f;
+    //changes between weapons?
+
+    public float range = 1f;
+    //changes between weapons? dont think so
+    //TODO: find the right amount
+
+    float timer;
+    AudioSource weaponAudio;
+    float effectsDisplayTime = 0.2f; //right value?
+
+    private void Awake()
+    {
+        weaponAudio = GetComponent<AudioSource>();
+        //shootable mask /damageable mask
+    }
+
+    // Update is called once per frame
+    void Update ()
+    {
+        timer += Time.deltaTime;
+
+        if (Input.GetButton("Fire1") && timer >= timeBetweenHits && Time.timeScale != 0)
+        {
+            Hit();
+        }
+
+        if (timer >= timeBetweenHits * effectsDisplayTime)
+        {
+            DisableEffects();
+        }
 	}
-	
-	// Update is called once per frame
-	void Update () {
-		
-	}
+
+    public void DisableEffects()
+    {
+       //TODO WAT
+    }
+
+    void Hit()
+    {
+        timer = 0f;
+
+        weaponAudio.Play();
+        //TODO: all
+    }
 }
