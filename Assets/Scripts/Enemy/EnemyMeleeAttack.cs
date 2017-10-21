@@ -35,7 +35,7 @@ public class EnemyMeleeAttack : MonoBehaviour
     {
         timer += Time.deltaTime;
 
-        if (timer >= timeBetweenAttacks && playerInRange && enemyStats.currentHealt > 0)
+        if (timer >= timeBetweenAttacks && playerInRange && enemyStats.currentHealth > 0)
         {
             Attack();
         }
