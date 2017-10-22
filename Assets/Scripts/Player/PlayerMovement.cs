@@ -4,13 +4,16 @@ using UnityEngine;
 
 public class PlayerMovement : MonoBehaviour {
 
-    public float speed = 6f;
+    public float speed = 1f;
+    public float chargeSpeed = 12f;
 
     Vector3 movement;
     Animator anim;
     Rigidbody playerRigidbody;
     int floorMask;
     float camRayLength = 100f;
+    bool globCharge;
+   
 
 
     private void Awake()
@@ -26,25 +29,40 @@ public class PlayerMovement : MonoBehaviour {
     {
         float h = Input.GetAxisRaw("Horizontal");
         float v = Input.GetAxisRaw("Vertical");
-
+        globCharge = Input.GetButton("Charging");
         Move(h, v);
 
         Turning();
 
 
-        //Animating(h, v);
+        Animating(h, v);
     }
 
     void Move(float h, float v)
     {
-        // Set the movement vector based on the axis input.
-        movement.Set(h, 0f, v);
+        
+        if (!globCharge)
+        {
+            // Set the movement vector based on the axis input.
+            movement.Set(h, 0f, v);
 
-        // Normalise the movement vector and make it proportional to the speed per second.
-        movement = movement.normalized * speed * Time.deltaTime;
+            // Normalise the movement vector and make it proportional to the speed per second.
+            movement = movement.normalized * speed * Time.deltaTime;
 
-        // Move the player to it's current position plus the movement.
-        playerRigidbody.MovePosition(transform.position + movement);
+            // Move the player to it's current position plus the movement.
+            playerRigidbody.MovePosition(transform.position + movement);
+        }
+        if(globCharge)
+        {
+            // Set the movement vector based on the axis input.
+            movement.Set(h, 0f, v);
+
+            // Normalise the movement vector and make it proportional to the speed per second.
+            movement = movement.normalized * chargeSpeed * Time.deltaTime;
+
+            // Move the player to it's current position plus the movement.
+            playerRigidbody.MovePosition(transform.position + movement);
+        }
     }
 
     void Turning()
@@ -70,5 +88,23 @@ public class PlayerMovement : MonoBehaviour {
             // Set the player's rotation to this new rotation.
             playerRigidbody.MoveRotation(newRotation);
         }
+    }
+
+    void Animating(float h, float v)
+    {
+       /* bool walking = h != 0f || v != 0f;
+        anim.SetBool("IsWalking", walking);*/
+
+        bool charging = (h != 0f || v != 0f) && Input.GetButton("Charging");
+        bool walking = (h != 0f || v != 0f) && !charging;
+        anim.SetBool("IsWalking", walking);
+        anim.SetBool("IsCharging", charging);
+
+        if (Input.GetButton("Fire1"))
+        {
+            anim.SetTrigger("Attack");
+        }
+
+
     }
 }
