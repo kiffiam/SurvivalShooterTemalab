@@ -30,7 +30,7 @@ public class EnemyMovement : MonoBehaviour
         nav = GetComponent<NavMeshAgent>();
     }
 
-    // Update is called once per frame
+    // Moving towards player and towards the portal
     void Update()
     {
         if (enemyStats.currentHealth > 0 && playerStats.currentHealth > 0)

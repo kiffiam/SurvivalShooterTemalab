@@ -8,7 +8,7 @@ public class EnemyStats : MonoBehaviour
     public int currentHealth;
     public float sinkSpeed = 2.5f; //do bodies sink instantly or at the end of the wave?
                                    //intanst: suck. End: cpu
-    public int scoreValue = 10; //changes from monster to monster
+    public int scoreValue = 10; //changes from monster to monster //interfaces to avoid code duplication??????!!!!!!
     public AudioClip deathClip;
 
 

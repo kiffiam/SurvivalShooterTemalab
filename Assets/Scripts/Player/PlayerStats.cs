@@ -23,14 +23,18 @@ public class PlayerStats : MonoBehaviour
 
 
     //private variables
-    //Text healthText;  // do i need this? instead in Healt Manager which writes it out
+
+    //Text healthText;  // do i need this? instead in Health Manager which writes it out
     Animator anim;
     AudioSource playerAudio;
     PlayerMovement playerMovement;
-    PlayerShooting playerShooting;
+    PlayerRanged playerRanged;
     PlayerMelee playerMelee;
     bool isDead;
     bool damaged; //for damaging flashing
+
+    enum StatToPlus { Health, MeleeAttackDamage, RangedAttackDamage} //switch feltétel az upgradehez
+    StatToPlus choosen;
 
 
 
@@ -38,7 +42,7 @@ public class PlayerStats : MonoBehaviour
     {
         anim = GetComponent<Animator>();
         playerMovement = GetComponent<PlayerMovement>();
-        playerShooting = GetComponent<PlayerShooting>();
+        playerRanged = GetComponent<PlayerRanged>();
         playerMelee = GetComponent<PlayerMelee>();
         playerAudio = GetComponent<AudioSource>();
         currentHealth = startingHealth;
@@ -91,6 +95,24 @@ public class PlayerStats : MonoBehaviour
         playerAudio.Play();
 
         playerMovement.enabled = false;
-        playerShooting.enabled = false;
+        playerRanged.enabled = false;
+        playerMelee.enabled = false;
     }
+
+    /*void StatsChanging() //giving the button reference? lehetinkább egy másik managerbe kéne rakni, amelyik kiirja hogy mire plusszolsz
+    {
+        playerAudio.clip = leveluprings;
+        switch (choosen)
+        {
+            case StatToPlus.Health:
+                break;
+            case StatToPlus.MeleeAttackDamage:
+                break;
+            case StatToPlus.RangedAttackDamage:
+                break;
+            default:
+                break;
+        }
+        playerAudio.Play();
+    }*/
 }
