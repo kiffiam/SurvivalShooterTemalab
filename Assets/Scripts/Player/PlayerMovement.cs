@@ -12,7 +12,6 @@ public class PlayerMovement : MonoBehaviour {
     Rigidbody playerRigidbody;
     int floorMask;
     float camRayLength = 100f;
-    //bool globCharge;
    
 
 
@@ -29,31 +28,16 @@ public class PlayerMovement : MonoBehaviour {
     {
         float h = Input.GetAxisRaw("Horizontal");
         float v = Input.GetAxisRaw("Vertical");
-        //globCharge = Input.GetButton("Charging");
+        
         Move(h, v);
 
         Turning();
-
 
         Animating(h, v);
     }
 
     void Move(float h, float v)
     {
-        
-       /* if (!globCharge)
-        {
-            // Set the movement vector based on the axis input.
-            movement.Set(h, 0f, v);
-
-            // Normalise the movement vector and make it proportional to the speed per second.
-            movement = movement.normalized * speed * Time.deltaTime;
-
-            // Move the player to it's current position plus the movement.
-            playerRigidbody.MovePosition(transform.position + movement);
-        }*/
-       // if(globCharge)
-       // {
             // Set the movement vector based on the axis input.
             movement.Set(h, 0f, v);
 
@@ -62,7 +46,7 @@ public class PlayerMovement : MonoBehaviour {
 
             // Move the player to it's current position plus the movement.
             playerRigidbody.MovePosition(transform.position + movement);
-       // }
+       
     }
 
     void Turning()
@@ -94,11 +78,6 @@ public class PlayerMovement : MonoBehaviour {
     {
        bool moving = h != 0f || v != 0f;
         anim.SetBool("IsMoving", moving);
-
-        /*bool charging = (h != 0f || v != 0f) && Input.GetButton("Charging");
-        bool walking = (h != 0f || v != 0f) && !charging;
-        anim.SetBool("IsWalking", walking);
-        anim.SetBool("IsCharging", charging);*/
 
         if (Input.GetButton("Fire1"))
         {
