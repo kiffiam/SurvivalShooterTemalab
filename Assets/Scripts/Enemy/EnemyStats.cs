@@ -51,8 +51,8 @@ public class EnemyStats : MonoBehaviour
 
         currentHealth -= amount;
 
-        hitParticles.transform.position = hitPoint;
-        hitParticles.Play();
+        //hitParticles.transform.position = hitPoint;
+        //hitParticles.Play();
 
         if (currentHealth <= 0)
         {

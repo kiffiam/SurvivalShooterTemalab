@@ -7,7 +7,7 @@ public class EnemyMeleeMovement : MonoBehaviour
 {
     //private variables
     //player's position
-    Transform player;
+    public Transform player;
 
     //Player's health
    /* PlayerStats playerStats;
@@ -16,7 +16,7 @@ public class EnemyMeleeMovement : MonoBehaviour
     EnemyStats enemyStats;*/
 
     //AI following the player
-    NavMeshAgent nav;
+    public NavMeshAgent nav;
 
     private void Awake()
     {

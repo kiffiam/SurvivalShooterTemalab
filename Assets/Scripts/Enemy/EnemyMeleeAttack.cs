@@ -5,7 +5,7 @@ using UnityEngine;
 public class EnemyMeleeAttack : MonoBehaviour
 {
 
-    public float timeBetweenAttacks = 0.5f; //changes by monsters
+    public float timeBetweenAttacks = 15f; //changes by monsters
     public int attackDamage = 10; //changes by monsters
 
     //private variables
@@ -14,7 +14,7 @@ public class EnemyMeleeAttack : MonoBehaviour
     PlayerStats playerStats;
     EnemyStats enemyStats;
 
-    bool InRange; //is the player in range
+    bool playerInRange; //is the player in range
     float timer;
 
 
@@ -22,10 +22,10 @@ public class EnemyMeleeAttack : MonoBehaviour
     {
         //finding the players reference
         player = GameObject.FindGameObjectWithTag("Player");
-        /*
+        
         playerStats = player.GetComponent<PlayerStats>();
 
-        enemyStats = GetComponent<EnemyStats>();*/
+        enemyStats = GetComponent<EnemyStats>();
 
         anim = GetComponent<Animator>();
     }
@@ -35,16 +35,16 @@ public class EnemyMeleeAttack : MonoBehaviour
     {
         timer += Time.deltaTime;
 
-        if (/*timer >= timeBetweenAttacks && */InRange/* && enemyStats.currentHealth > 0*/)
+        if (timer >= timeBetweenAttacks && playerInRange && enemyStats.currentHealth > 0)
         {
+            anim.SetTrigger("playerInRange");
             Attack();
-            
         }
 
-        /*if (playerStats.currentHealth <= 0)
+        if (playerStats.currentHealth <= 0)
         {
             anim.SetTrigger("PlayerDead");
-        }*/
+        }
 
     }
 
@@ -53,7 +53,7 @@ public class EnemyMeleeAttack : MonoBehaviour
     {
         if (other.gameObject == player)
         {
-            InRange = false;
+            playerInRange = false;
         }
     }
 
@@ -62,8 +62,8 @@ public class EnemyMeleeAttack : MonoBehaviour
     {
         if (other.gameObject == player)
         {
-            anim.SetTrigger("playerInRange");
-            InRange = true;
+            //anim.SetTrigger("playerInRange");
+            playerInRange = true;
         }
     }
 
@@ -72,12 +72,12 @@ public class EnemyMeleeAttack : MonoBehaviour
         
         
         timer = 0f;
-
-        /*  if (playerStats.currentHealth > 0)
+        
+          if (playerStats.currentHealth > 0)
           {
               playerStats.TakeDamage(attackDamage);
-          }*/
-       
+          }
+
 
     }
 }

@@ -19,9 +19,6 @@ public class PlayerStats : MonoBehaviour
     //public Color flashColor = new Color(1f, 1f, 1f, 0.1f);
 
     //public AudioClip cheer;
-
-
-
     //private variables
 
     //Text healthText;  // do i need this? instead in Health Manager which writes it out
@@ -69,11 +66,11 @@ public class PlayerStats : MonoBehaviour
 
         currentHealth -= amount;
 
-        healthText.text = Convert.ToString(currentHealth);
+        //healthText.text = Convert.ToString(currentHealth);
 
         playerAudio.Play();
 
-        if (currentHealth <= 0 && !isDead)
+        if (currentHealth <= 0 )
         {
             Death();
         }
@@ -95,8 +92,8 @@ public class PlayerStats : MonoBehaviour
         playerAudio.Play();
 
         playerMovement.enabled = false;
-        playerRanged.enabled = false;
-        playerMelee.enabled = false;
+       // playerRanged.enabled = false;
+        //playerMelee.enabled = false;
     }
 
     /*void StatsChanging() //giving the button reference? lehetinkább egy másik managerbe kéne rakni, amelyik kiirja hogy mire plusszolsz
