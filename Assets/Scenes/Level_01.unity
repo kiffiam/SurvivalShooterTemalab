@@ -920,6 +920,10 @@ Prefab:
       propertyPath: m_LocalScale.z
       value: 60
       objectReference: {fileID: 0}
+    - target: {fileID: 1028802045014690, guid: 3a5fc8761f355914f88b7a888727496f, type: 2}
+      propertyPath: m_Name
+      value: South Wall
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 3a5fc8761f355914f88b7a888727496f, type: 2}
   m_IsPrefabParent: 0
