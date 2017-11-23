@@ -43,7 +43,7 @@ public class EnemyMeleeAttack : MonoBehaviour
 
         if (playerStats.currentHealth <= 0)
         {
-            anim.SetTrigger("PlayerDead");
+            anim.SetBool("PlayerDead",true);
         }
 
     }
