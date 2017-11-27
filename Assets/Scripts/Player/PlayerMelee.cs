@@ -11,9 +11,6 @@ public class PlayerMelee : MonoBehaviour {
     public float timeBetweenHits = 0.5f;
     //changes between weapons?
 
-    public float range = 1f;
-    //changes between weapons? dont think so
-    //TODO: find the right amount
 
     float timer;
     AudioSource weaponAudio;
