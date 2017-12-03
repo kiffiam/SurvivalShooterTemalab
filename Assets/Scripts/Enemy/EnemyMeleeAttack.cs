@@ -51,7 +51,7 @@ public class EnemyMeleeAttack : MonoBehaviour
     //player out of range
     private void OnTriggerExit(Collider other)
     {
-        if (other.gameObject == player)
+        if (other.gameObject == player && !other.isTrigger)
         {
             playerInRange = false;
         }
@@ -60,7 +60,7 @@ public class EnemyMeleeAttack : MonoBehaviour
     //player in range
     private void OnTriggerEnter(Collider other)
     {
-        if (other.gameObject == player)
+        if (other.gameObject == player && !other.isTrigger)
         {
             //anim.SetTrigger("playerInRange");
             playerInRange = true;
