@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class EnemyShooting : MonoBehaviour {
+public class EnemyRangedAttack : MonoBehaviour {
 
 	// Use this for initialization
 	void Start () {

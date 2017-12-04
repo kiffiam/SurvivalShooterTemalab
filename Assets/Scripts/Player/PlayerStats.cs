@@ -93,7 +93,7 @@ public class PlayerStats : MonoBehaviour
 
         playerMovement.enabled = false;
        // playerRanged.enabled = false;
-        //playerMelee.enabled = false;
+        playerMelee.enabled = false;
     }
 
     /*void StatsChanging() //giving the button reference? lehetinkább egy másik managerbe kéne rakni, amelyik kiirja hogy mire plusszolsz

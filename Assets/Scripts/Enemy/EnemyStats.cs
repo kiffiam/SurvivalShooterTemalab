@@ -12,22 +12,28 @@ public class EnemyStats : MonoBehaviour
     public AudioClip deathClip;
 
 
+    EnemyMeleeAttack enemyMeleeAttack;
+    EnemyMeleeMovement enemyMeleeMovement;
+
     Animator anim;
     AudioSource enemyAudio;
 
     //Particle from the monster ???
-    ParticleSystem hitParticles;
+   // ParticleSystem hitParticles;
 
     CapsuleCollider capsuleCollider;
-    bool isDead;
+    bool isDead = false;
     bool isSinking; //????
 
     private void Awake()
     {
         anim = GetComponent<Animator>();
         enemyAudio = GetComponent<AudioSource>();
-        hitParticles = GetComponentInChildren<ParticleSystem>();
+        //hitParticles = GetComponentInChildren<ParticleSystem>();
         capsuleCollider = GetComponent<CapsuleCollider>();
+
+        enemyMeleeAttack=GetComponent<EnemyMeleeAttack>();
+        enemyMeleeMovement=GetComponent<EnemyMeleeMovement>();
 
         currentHealth = startingHealth;
     }
@@ -42,14 +48,16 @@ public class EnemyStats : MonoBehaviour
         }
     }
 
-    public void TakeDamage(int amount, Vector3 hitPoint)
+    public void TakeDamage(int amount)
     {
         if (isDead)
             return;
 
+        currentHealth -= amount;
+
         enemyAudio.Play();
 
-        currentHealth -= amount;
+        
 
         //hitParticles.transform.position = hitPoint;
         //hitParticles.Play();
@@ -69,7 +77,11 @@ public class EnemyStats : MonoBehaviour
         anim.SetTrigger("Dead");
 
         enemyAudio.clip = deathClip;
+
         enemyAudio.Play();
+
+        enemyMeleeMovement.enabled = false; 
+        enemyMeleeAttack.enabled = false;
     }
 
 
