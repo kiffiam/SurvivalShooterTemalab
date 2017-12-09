@@ -29,10 +29,10 @@ public class PlayerStats : MonoBehaviour
     PlayerMelee playerMelee;
     bool isDead;
     bool damaged; //for damaging flashing
+    bool defending;
 
     enum StatToPlus { Health, MeleeAttackDamage, RangedAttackDamage} //switch feltétel az upgradehez
     StatToPlus choosen;
-
 
 
     private void Awake()
@@ -43,11 +43,21 @@ public class PlayerStats : MonoBehaviour
         playerMelee = GetComponent<PlayerMelee>();
         playerAudio = GetComponent<AudioSource>();
         currentHealth = startingHealth;
+        healthText.text = "Health: " + currentHealth;
     }
 
     // Update is called once per frame
     void Update()
     {
+        if (Input.GetButton("Fire2") && !Input.GetButton("Fire1")) // defending takes effort, so you can't do it while attacking
+        {
+            defending = true;
+            // TODO: valami animációt ennek hogy feltartja a pajzsát???
+        }
+        else
+        {
+            defending = false;
+        }
         if (damaged)
         {
             //TODO: what would happen if the player gets hurt
@@ -62,17 +72,24 @@ public class PlayerStats : MonoBehaviour
     //Health reduce by the enemy's attack damage
     public void TakeDamage(int amount)
     {
-        damaged = true;
-
-        currentHealth -= amount;
-
-        //healthText.text = Convert.ToString(currentHealth);
-
-        playerAudio.Play();
-
-        if (currentHealth <= 0 )
+        if (defending && playerMelee.getInRange())// playerMelee.getInRange() > 0
         {
-            Death();
+            // play different audio to indicate shield hit instead of damage
+        }
+        else
+        {
+            damaged = true;
+
+            currentHealth -= amount;
+
+            healthText.text = "Health: "+currentHealth; //Convert.ToString(currentHealth);
+
+            playerAudio.Play();
+
+            if (currentHealth <= 0)
+            {
+                Death();
+            }
         }
     }
 
