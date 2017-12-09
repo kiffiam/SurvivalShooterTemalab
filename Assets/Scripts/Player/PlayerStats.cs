@@ -72,7 +72,7 @@ public class PlayerStats : MonoBehaviour
     //Health reduce by the enemy's attack damage
     public void TakeDamage(int amount)
     {
-        if (defending) // +condition, facing towards enemy?
+        if (defending && playerMelee.getInRange())// playerMelee.getInRange() > 0
         {
             // play different audio to indicate shield hit instead of damage
         }

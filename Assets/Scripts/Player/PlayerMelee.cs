@@ -15,7 +15,7 @@ public class PlayerMelee : MonoBehaviour {
     PlayerStats playerStats;
     EnemyStats enemyStats;
     GameObject[] enemy;
-
+    List<EnemyStats> enemiesInRange;
 
 
     bool enemyInRange;
@@ -26,7 +26,7 @@ public class PlayerMelee : MonoBehaviour {
         //shootable mask /damageable mask
         
         
-        enemy = GameObject.FindGameObjectsWithTag("Enemy");
+        //enemy = GameObject.FindGameObjectsWithTag("Enemy");
 
         //enemyStats = enemy.GetComponent<EnemyStats>();
 
@@ -38,13 +38,18 @@ public class PlayerMelee : MonoBehaviour {
     {
         timer += Time.deltaTime;
 
-        if (Input.GetButton("Fire1") && timer >= timeBetweenHits && Time.timeScale != 0 && enemyInRange)
+        if (Input.GetButton("Fire1") && timer >= timeBetweenHits && Time.timeScale != 0 && enemyInRange) //enemiesInRange.Count>0
         {
             Hit();
         }
 
         
 	}
+    public bool getInRange()
+    {
+        return enemyInRange;
+        //return enemiesInRange.Count; int
+    }
 
     public void DisableEffects()
     {
@@ -56,6 +61,7 @@ public class PlayerMelee : MonoBehaviour {
         if (other.tag=="Enemy" && !other.isTrigger)
         {
             enemyInRange = false;
+            //enemiesInRange.Remove(other.GetComponent<EnemyStats>());
         }
     }
 
@@ -64,7 +70,7 @@ public class PlayerMelee : MonoBehaviour {
     {
         if (other.tag == "Enemy" && !other.isTrigger)
         {
-
+            //enemiesInRange.Add(other.GetComponent<EnemyStats>());
             //enemy = GameObject.FindGameObjectWithTag("Enemy");
             enemyStats = other.GetComponent<EnemyStats>();
 
@@ -74,11 +80,15 @@ public class PlayerMelee : MonoBehaviour {
 
     void Hit()
     {
-        timer = 0f;
+        //timer = 0f;
 
         if (enemyStats.currentHealth > 0)
         {
             enemyStats.TakeDamage(damagePerHit);
+            /*foreach (EnemyStats enemy in enemiesInRange)
+            {
+                enemy.TakeDamage(damagePerHit);
+            }*/
         }
 
 
