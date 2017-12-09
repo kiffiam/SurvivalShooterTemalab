@@ -5,7 +5,7 @@ using UnityEngine;
 public class EnemyMeleeAttack : MonoBehaviour
 {
 
-    public float timeBetweenAttacks = 15f; //changes by monsters
+    public float timeBetweenAttacks = 25f; //changes by monsters
     public int attackDamage = 10; //changes by monsters
 
     //private variables
@@ -37,8 +37,9 @@ public class EnemyMeleeAttack : MonoBehaviour
 
         if (timer >= timeBetweenAttacks && playerInRange && enemyStats.currentHealth > 0)
         {
+            timer = 0f;
             anim.SetTrigger("playerInRange");
-            Attack();
+            //Attack();
         }
 
         if (playerStats.currentHealth <= 0)
@@ -71,7 +72,7 @@ public class EnemyMeleeAttack : MonoBehaviour
     {
         
         
-        timer = 0f;
+        //timer = 0f;
         
           if (playerStats.currentHealth > 0)
           {

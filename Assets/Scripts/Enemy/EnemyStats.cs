@@ -18,9 +18,6 @@ public class EnemyStats : MonoBehaviour
     Animator anim;
     AudioSource enemyAudio;
 
-    //Particle from the monster ???
-   // ParticleSystem hitParticles;
-
     CapsuleCollider capsuleCollider;
     bool isDead = false;
     bool isSinking; //????
@@ -56,11 +53,6 @@ public class EnemyStats : MonoBehaviour
         currentHealth -= amount;
 
         enemyAudio.Play();
-
-        
-
-        //hitParticles.transform.position = hitPoint;
-        //hitParticles.Play();
 
         if (currentHealth <= 0)
         {

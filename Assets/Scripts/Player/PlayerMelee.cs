@@ -80,7 +80,7 @@ public class PlayerMelee : MonoBehaviour {
 
     void Hit()
     {
-        //timer = 0f;
+        timer = 0f;
 
         if (enemyStats.currentHealth > 0)
         {
@@ -90,9 +90,6 @@ public class PlayerMelee : MonoBehaviour {
                 enemy.TakeDamage(damagePerHit);
             }*/
         }
-
-
-        weaponAudio.Play();
-        //TODO: all
+        
     }
 }

@@ -10,10 +10,10 @@ public class EnemyRangedMovement : MonoBehaviour{
     Transform player;
 
     //Player's health
-    /* PlayerStats playerStats;
+     PlayerStats playerStats;
 
      //Enemy mob's stats, health
-     EnemyStats enemyStats;*/
+     EnemyStats enemyStats;
 
     //AI following the player
     NavMeshAgent nav;
@@ -25,22 +25,22 @@ public class EnemyRangedMovement : MonoBehaviour{
         //finding the coordinates of the player
         player = GameObject.FindGameObjectWithTag("Player").transform;
 
-        /* playerStats = player.GetComponent<PlayerStats>();
+         playerStats = player.GetComponent<PlayerStats>();
 
-         enemyStats = GetComponent<EnemyStats>();*/
+         enemyStats = GetComponent<EnemyStats>();
 
         nav = GetComponent<NavMeshAgent>();
     }
 
     // Update is called once per frame
     void Update () {
-        // if (enemyStats.currentHealth > 0 && playerStats.currentHealth > 0)
-        // {
+        if (enemyStats.currentHealth > 0 && playerStats.currentHealth > 0)
+        {
             nav.SetDestination(player.position);
-        // }
-        /* else
+         }
+         else
          {
              nav.enabled = false;
-         }*/
+         }
     }
 }

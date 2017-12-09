@@ -99,7 +99,7 @@ public class PlayerStats : MonoBehaviour
     {
         isDead = true;
 
-        //playerShooting.DisableEffects();
+        
 
         anim.SetTrigger("Die");
 
