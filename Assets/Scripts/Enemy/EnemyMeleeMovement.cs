@@ -30,7 +30,7 @@ public class EnemyMeleeMovement : MonoBehaviour
         nav = GetComponent<NavMeshAgent>();
     }
 
-    // Moving towards player and towards the portal
+    
     void Update()
     {
        if (enemyStats.currentHealth > 0 && playerStats.currentHealth > 0)
