@@ -109,7 +109,7 @@ public class PlayerStats : MonoBehaviour
         playerAudio.Play();
 
         playerMovement.enabled = false;
-       // playerRanged.enabled = false;
+       
         playerMelee.enabled = false;
     }
 
