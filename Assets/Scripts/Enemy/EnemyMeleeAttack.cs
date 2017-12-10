@@ -71,10 +71,9 @@ public class EnemyMeleeAttack : MonoBehaviour
     void Attack()
     {
         
-        
         //timer = 0f;
         
-          if (playerStats.currentHealth > 0)
+          if (playerStats.currentHealth > 0 && enemyStats.currentHealth>0)
           {
               playerStats.TakeDamage(attackDamage);
           }
