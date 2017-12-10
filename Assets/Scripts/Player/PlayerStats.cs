@@ -44,7 +44,6 @@ public class PlayerStats : MonoBehaviour
         playerAudio = GetComponent<AudioSource>();
         currentHealth = startingHealth;
         healthText.text = "Health: " + currentHealth;
-
         
     }
 
@@ -84,16 +83,14 @@ public class PlayerStats : MonoBehaviour
 
             currentHealth -= amount;
 
-           
+            healthText.text = "Health: " + currentHealth; //Convert.ToString(currentHealth);
 
             playerAudio.Play();
 
             if (currentHealth <= 0)
             {
                 Death();
-                currentHealth = 0;
             }
-            healthText.text = "Health: " + currentHealth; //Convert.ToString(currentHealth);
         }
     }
 

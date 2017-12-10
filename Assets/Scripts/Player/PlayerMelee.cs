@@ -1,7 +1,6 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-using UnityEngine.UI;
 
 public class PlayerMelee : MonoBehaviour {
 
@@ -10,8 +9,6 @@ public class PlayerMelee : MonoBehaviour {
 
     public float timeBetweenHits = 0.5f;
 
-    public Text scoreText;
-    public int score;
 
     float timer;
     AudioSource playerAudio;
@@ -21,22 +18,14 @@ public class PlayerMelee : MonoBehaviour {
     List<EnemyStats> enemiesInRange;
 
 
-
     bool enemyInRange;
 
     private void Awake()
     {
-<<<<<<< HEAD
         playerAudio = GetComponent<AudioSource>();
-=======
-        weaponAudio = GetComponent<AudioSource>();
-
-        score = 0;
-        scoreText.text = "Score: " + score;
->>>>>>> 1515e31debb081dddd61054c7bca88fd171102d6
         //shootable mask /damageable mask
-
-
+        
+        
         //enemy = GameObject.FindGameObjectsWithTag("Enemy");
 
         //enemyStats = enemy.GetComponent<EnemyStats>();
@@ -95,13 +84,7 @@ public class PlayerMelee : MonoBehaviour {
 
         if (enemyStats.currentHealth > 0)
         {
-            bool killingBlow=enemyStats.TakeDamage(damagePerHit);
-            if (killingBlow)
-            {
-                //update score;
-                score += enemyStats.scoreValue;
-                scoreText.text = "Score: " + score;
-            }
+            enemyStats.TakeDamage(damagePerHit);
             /*foreach (EnemyStats enemy in enemiesInRange)
             {
                 enemy.TakeDamage(damagePerHit);

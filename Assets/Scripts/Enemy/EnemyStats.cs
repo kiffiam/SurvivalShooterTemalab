@@ -45,10 +45,10 @@ public class EnemyStats : MonoBehaviour
         }
     }
 
-    public bool TakeDamage(int amount) //return true if the hit kills
+    public void TakeDamage(int amount)
     {
         if (isDead)
-            return false;
+            return;
 
         currentHealth -= amount;
 
@@ -57,9 +57,7 @@ public class EnemyStats : MonoBehaviour
         if (currentHealth <= 0)
         {
             Death();
-            return true;
         }
-        return false;
     }
 
     void Death()
