@@ -44,6 +44,7 @@ public class PlayerStats : MonoBehaviour
         playerAudio = GetComponent<AudioSource>();
         currentHealth = startingHealth;
         healthText.text = "Health: " + currentHealth;
+
         
     }
 
