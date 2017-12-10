@@ -75,8 +75,8 @@ public class EnemyStats : MonoBehaviour
 
         enemyAudio.Play();
 
-        enemyMeleeMovement.enabled = false; 
-        enemyMeleeAttack.enabled = false;
+        //enemyMeleeMovement.enabled = false; 
+        //enemyMeleeAttack.enabled = false;
     }
 
 
