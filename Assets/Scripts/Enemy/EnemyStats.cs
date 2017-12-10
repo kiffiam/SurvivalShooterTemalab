@@ -57,6 +57,7 @@ public class EnemyStats : MonoBehaviour
         if (currentHealth <= 0)
         {
             Death();
+            ScoreManager.score += scoreValue;
         }
     }
 
