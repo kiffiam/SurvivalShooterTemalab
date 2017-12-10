@@ -13,15 +13,15 @@ public class PlayerStats : MonoBehaviour
     public int currentHealth;
     public Text healthText;
     public AudioClip deathClip;
+    public AudioClip levelUpClip;
 
-    //public Image damageImage;
-    //public float flashSpeed = 5f;
-    //public Color flashColor = new Color(1f, 1f, 1f, 0.1f);
+    public Image damageImage;
+    public float flashSpeed = 5f;
+    public Color flashColor = new Color(1f, 1f, 1f, 0.1f);
 
-    //public AudioClip cheer;
+    
     //private variables
 
-    //Text healthText;  // do i need this? instead in Health Manager which writes it out
     Animator anim;
     AudioSource playerAudio;
     PlayerMovement playerMovement;
@@ -60,11 +60,11 @@ public class PlayerStats : MonoBehaviour
         }
         if (damaged)
         {
-            //TODO: what would happen if the player gets hurt
+            damageImage.color = flashColor;
         }
         else
         {
-            //TODO: hurting effect goes away
+            damageImage.color = Color.Lerp(damageImage.color, Color.clear, flashSpeed * Time.deltaTime);
         }
         damaged = false;
     }
@@ -82,7 +82,7 @@ public class PlayerStats : MonoBehaviour
 
             currentHealth -= amount;
 
-            healthText.text = "Health: "+currentHealth; //Convert.ToString(currentHealth);
+            healthText.text = "Health: " + currentHealth; //Convert.ToString(currentHealth);
 
             playerAudio.Play();
 
@@ -98,9 +98,6 @@ public class PlayerStats : MonoBehaviour
     void Death()
     {
         isDead = true;
-
-        
-
         anim.SetTrigger("Die");
 
         //TODO: highscore name entering etc,,???
@@ -127,6 +124,8 @@ public class PlayerStats : MonoBehaviour
             default:
                 break;
         }
+        playerAudio = levelUpClip;
         playerAudio.Play();
+        playerAudio = GetComponent<AudioSource>();
     }*/
 }
