@@ -5,42 +5,38 @@ using UnityEngine.AI;
 
 public class EnemyRangedMovement : MonoBehaviour{
 
-    //private variables
-    //player's position
-    Transform player;
+   Transform playerTransform;
+    GameObject player;
+    PlayerStats playerStats;
+    EnemyStats enemyStats;
+    EnemyRangedAttack enemyRangedAttack;
 
-    //Player's health
-     PlayerStats playerStats;
-
-     //Enemy mob's stats, health
-     EnemyStats enemyStats;
-
-    //AI following the player
     NavMeshAgent nav;
-    Vector3 vector = new Vector3(40, 0, 40);
-    
-
+ 
     private void Awake()
     {
         //finding the coordinates of the player
-        player = GameObject.FindGameObjectWithTag("Player").transform;
-
-         playerStats = player.GetComponent<PlayerStats>();
-
-         enemyStats = GetComponent<EnemyStats>();
+        playerTransform = GameObject.FindGameObjectWithTag("Player").transform;
+        player = GameObject.FindGameObjectWithTag("Player");
+        playerStats = player.GetComponent<PlayerStats>();
+        enemyRangedAttack = GetComponent<EnemyRangedAttack>();
+        enemyStats = GetComponent<EnemyStats>();
 
         nav = GetComponent<NavMeshAgent>();
+        nav.stoppingDistance = enemyRangedAttack.range;
     }
 
     // Update is called once per frame
     void Update () {
-        if (enemyStats.currentHealth > 0 && playerStats.currentHealth > 0)
+        if (enemyStats.currentHealth > 0 && 
+            playerStats.currentHealth > 0)
+            //&& enemyRangedAttack.playerDistance >= enemyRangedAttack.range)
         {
-            nav.SetDestination(player.position);
-         }
-         else
-         {
-             nav.enabled = false;
-         }
+            nav.SetDestination(playerTransform.position);
+        }
+        else
+        {
+            nav.enabled = false;
+        }
     }
 }
