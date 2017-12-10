@@ -4,8 +4,15 @@ using UnityEngine;
 
 public class MenuScript : MonoBehaviour {
 
+    AudioSource source;
+    public void Awake()
+    {
+        source = GetComponentInChildren<AudioSource>();
+    }
     public void Play()
     {
+        source.Play();
+        //while (source.isPlaying) { }
         UnityEngine.SceneManagement.SceneManager.LoadScene(1);
     }
 

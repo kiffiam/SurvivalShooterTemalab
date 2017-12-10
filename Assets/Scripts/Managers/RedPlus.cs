@@ -29,7 +29,7 @@ public class RedPlus : MonoBehaviour {
         rend = GetComponent<Renderer>();
         collider = GetComponent<CapsuleCollider>();
 
-        Destroy(gameObject, 10f);
+        Destroy(gameObject, 18f);
     }
 	
 	// Update is called once per frame

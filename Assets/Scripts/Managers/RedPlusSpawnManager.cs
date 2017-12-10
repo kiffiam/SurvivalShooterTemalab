@@ -6,7 +6,7 @@ public class RedPlusSpawnManager : MonoBehaviour {
 
     public PlayerStats playerHealth;
     public GameObject redPlus;
-    public float spawnTime = 10f;
+    public float spawnTime = 7f;
     public Transform[] spawnPoints;
     //public bool[] spawnPointOccupied;
 
