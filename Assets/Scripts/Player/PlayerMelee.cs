@@ -14,7 +14,7 @@ public class PlayerMelee : MonoBehaviour {
     public int score;
 
     float timer;
-    AudioSource weaponAudio;
+    AudioSource playerAudio;
     PlayerStats playerStats;
     EnemyStats enemyStats;
     GameObject[] enemy;
@@ -26,10 +26,14 @@ public class PlayerMelee : MonoBehaviour {
 
     private void Awake()
     {
+<<<<<<< HEAD
+        playerAudio = GetComponent<AudioSource>();
+=======
         weaponAudio = GetComponent<AudioSource>();
 
         score = 0;
         scoreText.text = "Score: " + score;
+>>>>>>> 1515e31debb081dddd61054c7bca88fd171102d6
         //shootable mask /damageable mask
 
 
