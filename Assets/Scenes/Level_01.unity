@@ -9830,6 +9830,11 @@ Prefab:
       propertyPath: m_RootOrder
       value: 4
       objectReference: {fileID: 0}
+    - target: {fileID: 114085138343709412, guid: a00c75e3da4225f4e9542c33cf6b67f7,
+        type: 2}
+      propertyPath: startingHealth
+      value: 100
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: a00c75e3da4225f4e9542c33cf6b67f7, type: 2}
   m_IsPrefabParent: 0
@@ -16193,6 +16198,16 @@ Prefab:
       propertyPath: wizardHurt
       value: 
       objectReference: {fileID: 8300000, guid: 4f4addfe5b3d7446cb4a03c581dc1ec8, type: 3}
+    - target: {fileID: 114833201992254234, guid: 3c13c1085fbb2f740aab955f4153c488,
+        type: 2}
+      propertyPath: startingHealth
+      value: 75
+      objectReference: {fileID: 0}
+    - target: {fileID: 114113011470435008, guid: 3c13c1085fbb2f740aab955f4153c488,
+        type: 2}
+      propertyPath: attackDamage
+      value: 100
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 3c13c1085fbb2f740aab955f4153c488, type: 2}
   m_IsPrefabParent: 0

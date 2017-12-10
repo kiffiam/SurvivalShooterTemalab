@@ -57,7 +57,7 @@ public class EnemyStats : MonoBehaviour
         if (currentHealth <= 0)
         {
             Death();
-            ScoreManager.score += scoreValue;
+
         }
     }
 
@@ -68,6 +68,8 @@ public class EnemyStats : MonoBehaviour
         capsuleCollider.isTrigger = true;
 
         anim.SetTrigger("Dead");
+
+        ScoreManager.score += scoreValue;
 
         enemyAudio.clip = deathClip;
 
