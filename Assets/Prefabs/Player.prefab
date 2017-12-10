@@ -930,6 +930,11 @@ MonoBehaviour:
   currentHealth: 0
   healthText: {fileID: 0}
   deathClip: {fileID: 8300000, guid: 11aa34770a7fde3439b585cfd25d2329, type: 3}
+  levelUpClip: {fileID: 8300000, guid: e162dacf0a2ba4342bc1ef462bc257b7, type: 3}
+  damageImage: {fileID: 0}
+  flashSpeed: 5
+  flashColor: {r: 0.8455882, g: 0.111916095, b: 0.111916095, a: 0.1}
+  playerAudio: {fileID: 0}
 --- !u!114 &114722243858766212
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -941,8 +946,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ab0695aad0fbcb64cba155a7e97dd50f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  speed: 1
-  chargeSpeed: 5
+  speed: 5
 --- !u!114 &114834434052403228
 MonoBehaviour:
   m_ObjectHideFlags: 1

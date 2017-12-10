@@ -58,7 +58,7 @@ public class PlayerMelee : MonoBehaviour {
 
     private void OnTriggerExit(Collider other)
     {
-        if (other.tag=="Enemy" && !other.isTrigger)
+        if (other.gameObject.tag=="Enemy" && !other.isTrigger)
         {
             enemyInRange = false;
             //enemiesInRange.Remove(other.GetComponent<EnemyStats>());
@@ -68,7 +68,7 @@ public class PlayerMelee : MonoBehaviour {
     //enemy in range
     private void OnTriggerEnter(Collider other)
     {
-        if (other.tag == "Enemy" && !other.isTrigger)
+        if (other.gameObject.tag == "Enemy" && !other.isTrigger)
         {
             //enemiesInRange.Add(other.GetComponent<EnemyStats>());
             //enemy = GameObject.FindGameObjectWithTag("Enemy");

@@ -23,14 +23,14 @@ public class PlayerStats : MonoBehaviour
     //private variables
 
     Animator anim;
-    AudioSource playerAudio;
+    public AudioSource playerAudio;
     PlayerMovement playerMovement;
     PlayerRanged playerRanged;
     PlayerMelee playerMelee;
     bool isDead;
     bool damaged; //for damaging flashing
     bool defending;
-
+    
     enum StatToPlus { Health, MeleeAttackDamage, RangedAttackDamage} //switch feltétel az upgradehez
     StatToPlus choosen;
 
@@ -44,6 +44,7 @@ public class PlayerStats : MonoBehaviour
         playerAudio = GetComponent<AudioSource>();
         currentHealth = startingHealth;
         healthText.text = "Health: " + currentHealth;
+        
     }
 
     // Update is called once per frame
