@@ -17,6 +17,7 @@ public class RedPlus : MonoBehaviour {
     PlayerStats playerStats;
     CapsuleCollider collider;
     Renderer rend;
+    bool pickedUp;
 
     // Use this for initialization
     void Awake () {
@@ -27,6 +28,8 @@ public class RedPlus : MonoBehaviour {
         playerStats = GameObject.FindGameObjectWithTag("Player").GetComponent<PlayerStats>();
         rend = GetComponent<Renderer>();
         collider = GetComponent<CapsuleCollider>();
+
+        Destroy(gameObject, 10f);
     }
 	
 	// Update is called once per frame
