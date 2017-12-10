@@ -43,7 +43,7 @@ public class EnemyRangedAttack : MonoBehaviour {
 
         timer += Time.deltaTime;
 
-        if (timer >= timeBetweenAttacks && range >= playerDistance && enemyStats.currentHealth > 0)
+        if (timer >= timeBetweenAttacks && range >= playerDistance && enemyStats.currentHealth > 0 && playerStats.currentHealth>0)
         {
             timer = 0f;
             anim.SetTrigger("playerInRange");
