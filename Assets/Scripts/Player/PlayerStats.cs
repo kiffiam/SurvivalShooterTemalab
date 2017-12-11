@@ -31,8 +31,8 @@ public class PlayerStats : MonoBehaviour
     bool damaged; //for damaging flashing
     bool defending;
     
-    enum StatToPlus { Health, MeleeAttackDamage, RangedAttackDamage} //switch feltétel az upgradehez
-    StatToPlus choosen;
+   /* enum StatToPlus { Health, MeleeAttackDamage, RangedAttackDamage} //switch feltétel az upgradehez
+    StatToPlus choosen;*/
 
 
     private void Awake()
@@ -83,8 +83,6 @@ public class PlayerStats : MonoBehaviour
 
             currentHealth -= amount;
 
-           
-
             playerAudio.Play();
 
             if (currentHealth <= 0)
@@ -102,8 +100,7 @@ public class PlayerStats : MonoBehaviour
     {
         isDead = true;
         anim.SetTrigger("Die");
-
-        //TODO: highscore name entering etc,,???
+        
 
         playerAudio.clip = deathClip;
         playerAudio.Play();

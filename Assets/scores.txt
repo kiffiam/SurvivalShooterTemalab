@@ -1,0 +1,10 @@
+A	10
+B	12
+C	6
+s	60
+mnb	50
+asdasd	75
+	45
+	0
+	0
+zoller	185
