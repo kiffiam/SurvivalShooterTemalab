@@ -24,8 +24,8 @@ public class GameOverScript : MonoBehaviour {
 
 			if (restartTimer >= delay) {
 				saveScore();
-				Application.LoadLevel (0);
-			}
+                UnityEngine.SceneManagement.SceneManager.LoadScene(0);
+            }
 		}
 	}
 

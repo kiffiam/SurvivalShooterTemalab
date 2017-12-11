@@ -81,6 +81,7 @@ public class EnemyStats : MonoBehaviour
 
         //enemyMeleeMovement.enabled = false; 
         //enemyMeleeAttack.enabled = false;
+        capsuleCollider.isTrigger = true;
     }
 
     public void StartSinking()

@@ -14,8 +14,8 @@ public class PlayerMelee : MonoBehaviour {
     AudioSource playerAudio;
     PlayerStats playerStats;
     EnemyStats enemyStats;
-    GameObject[] enemy;
-    List<EnemyStats> enemiesInRange;
+    List<GameObject> enemiesInCollider;
+    //List<EnemyStats> enemiesInCollider;
 
 
     bool enemyInRange;
@@ -24,8 +24,8 @@ public class PlayerMelee : MonoBehaviour {
     {
         playerAudio = GetComponent<AudioSource>();
         //shootable mask /damageable mask
-        
-        
+
+        enemiesInCollider = new List<GameObject>();
         //enemy = GameObject.FindGameObjectsWithTag("Enemy");
 
         //enemyStats = enemy.GetComponent<EnemyStats>();
@@ -60,8 +60,10 @@ public class PlayerMelee : MonoBehaviour {
     {
         if (other.gameObject.tag=="Enemy" && !other.isTrigger)
         {
-            enemyInRange = false;
-            //enemiesInRange.Remove(other.GetComponent<EnemyStats>());
+            enemiesInCollider.Remove(other.gameObject);
+            if(enemiesInCollider==null)
+                enemyInRange = false;
+            
         }
     }
 
@@ -70,9 +72,9 @@ public class PlayerMelee : MonoBehaviour {
     {
         if (other.gameObject.tag == "Enemy" && !other.isTrigger)
         {
-            //enemiesInRange.Add(other.GetComponent<EnemyStats>());
+            enemiesInCollider.Add(other.gameObject);
             //enemy = GameObject.FindGameObjectWithTag("Enemy");
-            enemyStats = other.GetComponent<EnemyStats>();
+           // enemyStats = other.GetComponent<EnemyStats>();
 
             enemyInRange = true;
         }
@@ -82,14 +84,19 @@ public class PlayerMelee : MonoBehaviour {
     {
         timer = 0f;
 
-        if (enemyStats.currentHealth > 0)
+        /* if (enemyStats.currentHealth > 0)
+         {
+             enemyStats.TakeDamage(damagePerHit);
+         }*/
+
+        foreach (GameObject enemy in enemiesInCollider)
         {
-            enemyStats.TakeDamage(damagePerHit);
-            /*foreach (EnemyStats enemy in enemiesInRange)
+            if (enemy != null)
             {
-                enemy.TakeDamage(damagePerHit);
-            }*/
+                if (enemy.GetComponent<EnemyStats>().currentHealth > 0)
+                    enemy.GetComponent<EnemyStats>().TakeDamage(damagePerHit);
+            }
         }
-        
+
     }
 }

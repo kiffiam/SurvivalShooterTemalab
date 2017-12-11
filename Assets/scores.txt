@@ -9,3 +9,6 @@ asdasd	75
 	0
 zoller	185
 	70
+	35
+	0
+asdasd	0
