@@ -12,18 +12,26 @@ public class PlayerManuScript : MonoBehaviour {
 	 public Text points;
      GameObject player;
 	// Use this for initialization
-	void Start () {
+	void Awake () {
+
         player = GameObject.FindGameObjectWithTag("Player");
 		playerStats = player.GetComponent<PlayerStats> ();
 		playerMelee = player.GetComponent<PlayerMelee> ();
-	}
-	
-	// Update is called once per frame
-	void Update () {
+        //points.text = currentPointsToUse.ToString();
+    }
+
+    private void OnBecameVisible()
+    {
+        points.text = currentPointsToUse.ToString();
+    }
+
+
+    // Update is called once per frame
+    void Update () {
 		
 	}
 
-	public void addDamagePoints(){
+	public void AddDamagePoints(){
 		if(currentPointsToUse>=1){
 			currentPointsToUse -= 1;
 			playerMelee.damagePerHit += 2;
@@ -31,12 +39,16 @@ public class PlayerManuScript : MonoBehaviour {
 		points.text = currentPointsToUse.ToString();
 	}
 
-	public void addHealthPoints(){
+	public void AddHealthPoints(){
 		if(currentPointsToUse>=1){
 			currentPointsToUse -= 1;
-			playerStats.currentHealth+=5;
+			playerStats.startingHealth+=5;
 		}
 		points.text = currentPointsToUse.ToString();
 	}
+
+    public void BackButtonClicked() {
+        Time.timeScale = 1;
+    }
 
 }

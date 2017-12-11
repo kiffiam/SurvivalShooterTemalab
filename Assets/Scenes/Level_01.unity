@@ -10129,6 +10129,17 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
+      - m_Target: {fileID: 1550350038}
+        m_MethodName: BackButtonClicked
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
     m_TypeName: UnityEngine.UI.Button+ButtonClickedEvent, UnityEngine.UI, Version=1.0.0.0,
       Culture=neutral, PublicKeyToken=null
 --- !u!114 &929618655
@@ -12341,7 +12352,7 @@ Transform:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 1106267657}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 30.64, y: -1.19, z: 26.87}
+  m_LocalPosition: {x: 30.17, y: -1.85, z: 27.98}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 1922953433}
@@ -12823,6 +12834,11 @@ Prefab:
       propertyPath: m_RootOrder
       value: 5
       objectReference: {fileID: 0}
+    - target: {fileID: 114090908622980582, guid: e75dcfd08d876fe40880943cb33da940,
+        type: 2}
+      propertyPath: player
+      value: 
+      objectReference: {fileID: 1967108027}
     - target: {fileID: 4554103923870116, guid: e75dcfd08d876fe40880943cb33da940, type: 2}
       propertyPath: m_LocalRotation.x
       value: 0.5275052
@@ -12838,16 +12854,6 @@ Prefab:
     - target: {fileID: 4554103923870116, guid: e75dcfd08d876fe40880943cb33da940, type: 2}
       propertyPath: m_LocalRotation.w
       value: 0.019032257
-      objectReference: {fileID: 0}
-    - target: {fileID: 114090908622980582, guid: e75dcfd08d876fe40880943cb33da940,
-        type: 2}
-      propertyPath: player
-      value: 
-      objectReference: {fileID: 1967108027}
-    - target: {fileID: 114930189233156914, guid: e75dcfd08d876fe40880943cb33da940,
-        type: 2}
-      propertyPath: startingHealth
-      value: 150
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: e75dcfd08d876fe40880943cb33da940, type: 2}
@@ -13806,7 +13812,7 @@ Transform:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 1238999524}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 31.0606, y: -1.59, z: 29.2591}
+  m_LocalPosition: {x: 31.43, y: -1.59, z: 29.2591}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 1922953433}
@@ -14070,7 +14076,7 @@ Transform:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 1267206896}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 28.87, y: -1.4207, z: 29.2591}
+  m_LocalPosition: {x: 28.4, y: -1.4207, z: 29.2591}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 1922953433}
@@ -15365,7 +15371,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: 0
+  m_Text: 5
 --- !u!222 &1369771482
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -17231,7 +17237,7 @@ Transform:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 1461869406}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -16.45, y: -1.25, z: -23.38}
+  m_LocalPosition: {x: -16.74, y: -1.83, z: -23.38}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 1922953433}
@@ -21463,6 +21469,7 @@ GameObject:
   - component: {fileID: 1863342269}
   - component: {fileID: 1863342268}
   - component: {fileID: 1863342267}
+  - component: {fileID: 1863342270}
   m_Layer: 5
   m_Name: Button
   m_TagString: Untagged
@@ -21572,6 +21579,28 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
+      - m_Target: {fileID: 1863342270}
+        m_MethodName: Clicked
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+      - m_Target: {fileID: 1550350041}
+        m_MethodName: set_enabled
+        m_Mode: 6
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 1
+        m_CallState: 2
     m_TypeName: UnityEngine.UI.Button+ButtonClickedEvent, UnityEngine.UI, Version=1.0.0.0,
       Culture=neutral, PublicKeyToken=null
 --- !u!114 &1863342268
@@ -21607,6 +21636,17 @@ CanvasRenderer:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 1863342265}
+--- !u!114 &1863342270
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1863342265}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d412f5fcd127fb547ae75913aab0860c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1001 &1864095047
 Prefab:
   m_ObjectHideFlags: 0
@@ -22315,8 +22355,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   playerHealth: {fileID: 2036283269}
-  spawnAble: {fileID: 153010, guid: 80afb8f52d27bae4f8ff4cf083945861, type: 2}
-  spawnTime: 10
+  spawnAble: {fileID: 1310437552426340, guid: e75dcfd08d876fe40880943cb33da940, type: 2}
+  spawnTime: 9
   spawnPoints:
   - {fileID: 169485993}
   - {fileID: 1461869407}
@@ -23177,7 +23217,7 @@ MonoBehaviour:
     m_PersistentCalls:
       m_Calls:
       - m_Target: {fileID: 1550350038}
-        m_MethodName: addHealthPoints
+        m_MethodName: AddHealthPoints
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -23745,7 +23785,7 @@ MonoBehaviour:
     m_PersistentCalls:
       m_Calls:
       - m_Target: {fileID: 1550350038}
-        m_MethodName: addDamagePoints
+        m_MethodName: AddDamagePoints
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
