@@ -16,7 +16,7 @@ public class RedPlusSpawnManager : MonoBehaviour {
         InvokeRepeating("Spawn", spawnTime, spawnTime);
     }
 	
-	// Update is called once per frame
+
 	void Spawn () {
         if (playerHealth.currentHealth <= 0f)
         {

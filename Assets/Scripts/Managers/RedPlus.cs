@@ -17,7 +17,7 @@ public class RedPlus : MonoBehaviour {
     PlayerStats playerStats;
     CapsuleCollider collider;
     Renderer rend;
-    bool pickedUp;
+   
 
     // Use this for initialization
     void Awake () {
@@ -44,7 +44,14 @@ public class RedPlus : MonoBehaviour {
             redPlusAudio.Play();
             rend.enabled = false;
             collider.enabled = false;
-            playerStats.currentHealth += healthValue;
+            if (playerStats.currentHealth + healthValue <= playerStats.startingHealth)
+            {
+                playerStats.currentHealth += healthValue;
+            }
+            else {
+                playerStats.currentHealth = playerStats.startingHealth;
+            }
+            
             playerStats.healthText.text = "Health: " + playerStats.currentHealth;
 
             //particles effect maybe

@@ -12,7 +12,7 @@ public class MenuScript : MonoBehaviour {
     public void Play()
     {
         source.Play();
-        //while (source.isPlaying) { }
+        
         UnityEngine.SceneManagement.SceneManager.LoadScene(1);
     }
 

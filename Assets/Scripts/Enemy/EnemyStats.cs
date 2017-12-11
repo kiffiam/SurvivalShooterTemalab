@@ -20,7 +20,9 @@ public class EnemyStats : MonoBehaviour
 
     CapsuleCollider capsuleCollider;
     bool isDead = false;
-    bool isSinking; //????
+    bool isSinking;
+
+    float timer;
 
     private void Awake()
     {
@@ -38,9 +40,10 @@ public class EnemyStats : MonoBehaviour
     
     void Update()
     {
-        //needing?
+        timer += Time.deltaTime;
         if (isSinking)
         {
+            if (timer > 4f)
             transform.Translate(-Vector3.up * sinkSpeed * Time.deltaTime);
         }
     }
@@ -57,7 +60,6 @@ public class EnemyStats : MonoBehaviour
         if (currentHealth <= 0)
         {
             Death();
-
         }
     }
 
@@ -75,8 +77,19 @@ public class EnemyStats : MonoBehaviour
 
         enemyAudio.Play();
 
+        StartSinking();
+
         //enemyMeleeMovement.enabled = false; 
         //enemyMeleeAttack.enabled = false;
+    }
+
+    public void StartSinking()
+    {
+        GetComponent<UnityEngine.AI.NavMeshAgent>().enabled = false;
+        GetComponent<Rigidbody>().isKinematic = true;
+        isSinking = true;
+        timer = 0f;
+        Destroy(gameObject, 6f);
     }
 
 
