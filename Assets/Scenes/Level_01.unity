@@ -991,7 +991,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   playerHealth: {fileID: 2036283269}
   spawnAble: {fileID: 1630635566}
-  spawnTime: 15
+  spawnTime: 20
   spawnPoints:
   - {fileID: 831519144}
   - {fileID: 1091021911}
@@ -8750,7 +8750,7 @@ Transform:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 771423173}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 31.470623, y: -1.8307478, z: -23.970816}
+  m_LocalPosition: {x: 31.470623, y: 0, z: -23.970816}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 80775544}
@@ -10939,7 +10939,7 @@ Transform:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 1007817799}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -19.519379, y: -1.7207477, z: 26.96}
+  m_LocalPosition: {x: -19.519379, y: 0, z: 26.96}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 80775544}
@@ -15364,7 +15364,7 @@ Transform:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 1404761817}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -19.519379, y: -1.7207477, z: -23.22}
+  m_LocalPosition: {x: -19.519379, y: 0, z: -23.22}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 80775544}
@@ -17429,7 +17429,7 @@ Transform:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 1515929846}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 31.060623, y: -1.4207478, z: 29.259184}
+  m_LocalPosition: {x: 31.060623, y: 0, z: 29.259184}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 80775544}
