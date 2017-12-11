@@ -926,7 +926,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 21054ee10f2531d45a786947082578a8, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  startingHealth: 500
+  startingHealth: 1000
   currentHealth: 0
   healthText: {fileID: 0}
   deathClip: {fileID: 8300000, guid: 11aa34770a7fde3439b585cfd25d2329, type: 3}
@@ -959,7 +959,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   damagePerHit: 25
-  timeBetweenHits: 1
+  timeBetweenHits: 0.7
 --- !u!136 &136269218499321730
 CapsuleCollider:
   m_ObjectHideFlags: 1
