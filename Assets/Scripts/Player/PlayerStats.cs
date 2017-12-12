@@ -27,7 +27,6 @@ public class PlayerStats : MonoBehaviour
     Animator anim;
     AudioSource playerAudio;
     PlayerMovement playerMovement;
-    PlayerRanged playerRanged;
     PlayerMelee playerMelee;
     bool isDead;
     bool damaged; //for damaging flashing
@@ -39,7 +38,6 @@ public class PlayerStats : MonoBehaviour
     {
         anim = GetComponent<Animator>();
         playerMovement = GetComponent<PlayerMovement>();
-        playerRanged = GetComponent<PlayerRanged>();
         playerMelee = GetComponent<PlayerMelee>();
         playerAudio = GetComponent<AudioSource>();
         currentHealth = startingHealth;

@@ -52,7 +52,7 @@ public class RedPlus : MonoBehaviour {
                 playerStats.currentHealth = playerStats.startingHealth;
             }
             
-            playerStats.healthText.text = "Health: " + playerStats.currentHealth;
+            playerStats.healthText.text = "Health: " + playerStats.startingHealth + "/" +  playerStats.currentHealth;
 
             //particles effect maybe
 
