@@ -14,6 +14,8 @@ public class PlayerStats : MonoBehaviour
     public Text healthText;
     public AudioClip deathClip;
     public AudioClip levelUpClip;
+    public AudioClip defendingClip;
+    public AudioClip hurted;
 
     public Image damageImage;
     public float flashSpeed = 5f;
@@ -23,16 +25,14 @@ public class PlayerStats : MonoBehaviour
     //private variables
 
     Animator anim;
-    public AudioSource playerAudio;
+    AudioSource playerAudio;
     PlayerMovement playerMovement;
     PlayerRanged playerRanged;
     PlayerMelee playerMelee;
     bool isDead;
     bool damaged; //for damaging flashing
-    bool defending;
+    public bool blocking;
     
-   /* enum StatToPlus { Health, MeleeAttackDamage, RangedAttackDamage} //switch feltétel az upgradehez
-    StatToPlus choosen;*/
 
 
     private void Awake()
@@ -43,21 +43,22 @@ public class PlayerStats : MonoBehaviour
         playerMelee = GetComponent<PlayerMelee>();
         playerAudio = GetComponent<AudioSource>();
         currentHealth = startingHealth;
-        healthText.text = "Health: " + currentHealth;
-        
+        healthText.text = "Health: " + startingHealth + "/" + currentHealth;
+
     }
 
     // Update is called once per frame
     void Update()
     {
-        if (Input.GetButton("Fire2") && !Input.GetButton("Fire1")) // defending takes effort, so you can't do it while attacking
+        if (Input.GetButton("Fire2")) // defending takes effort, so you can't do it while attacking
         {
-            defending = true;
-            // TODO: valami animációt ennek hogy feltartja a pajzsát???
+            blocking = true;
+            
         }
         else
         {
-            defending = false;
+            blocking = false;
+            
         }
         if (damaged)
         {
@@ -68,13 +69,17 @@ public class PlayerStats : MonoBehaviour
             damageImage.color = Color.Lerp(damageImage.color, Color.clear, flashSpeed * Time.deltaTime);
         }
         damaged = false;
+        
     }
 
     //Health reduce by the enemy's attack damage
     public void TakeDamage(int amount)
     {
-        if (defending && playerMelee.getInRange())// playerMelee.getInRange() > 0
+        if (blocking && playerMelee.enemyInRange)
         {
+            playerAudio.clip = defendingClip;
+            playerAudio.Play();
+           
             // play different audio to indicate shield hit instead of damage
         }
         else
@@ -82,7 +87,7 @@ public class PlayerStats : MonoBehaviour
             damaged = true;
 
             currentHealth -= amount;
-
+            playerAudio.clip = hurted;
             playerAudio.Play();
 
             if (currentHealth <= 0)
@@ -90,7 +95,7 @@ public class PlayerStats : MonoBehaviour
                 Death();
                 currentHealth = 0;
             }
-            healthText.text = "Health: " + currentHealth; //Convert.ToString(currentHealth);
+            healthText.text = "Health: " + startingHealth + "/" +  currentHealth; //Convert.ToString(currentHealth);
         }
     }
 
@@ -109,23 +114,4 @@ public class PlayerStats : MonoBehaviour
        
         playerMelee.enabled = false;
     }
-
-    /*void StatsChanging() //giving the button reference? lehetinkább egy másik managerbe kéne rakni, amelyik kiirja hogy mire plusszolsz
-    {
-        playerAudio.clip = leveluprings;
-        switch (choosen)
-        {
-            case StatToPlus.Health:
-                break;
-            case StatToPlus.MeleeAttackDamage:
-                break;
-            case StatToPlus.RangedAttackDamage:
-                break;
-            default:
-                break;
-        }
-        playerAudio = levelUpClip;
-        playerAudio.Play();
-        playerAudio = GetComponent<AudioSource>();
-    }*/
 }

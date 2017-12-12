@@ -18,17 +18,13 @@ public class PlayerMelee : MonoBehaviour {
     //List<EnemyStats> enemiesInCollider;
 
 
-    bool enemyInRange;
+    public bool enemyInRange;
 
     private void Awake()
     {
         playerAudio = GetComponent<AudioSource>();
-        //shootable mask /damageable mask
 
         enemiesInCollider = new List<GameObject>();
-        //enemy = GameObject.FindGameObjectsWithTag("Enemy");
-
-        //enemyStats = enemy.GetComponent<EnemyStats>();
 
         enemyInRange = false;
     }
@@ -38,23 +34,11 @@ public class PlayerMelee : MonoBehaviour {
     {
         timer += Time.deltaTime;
 
-        if (Input.GetButton("Fire1") && timer >= timeBetweenHits && Time.timeScale != 0 && enemyInRange) //enemiesInRange.Count>0
+        if (Input.GetButton("Fire1") && timer >= timeBetweenHits && Time.timeScale != 0 && enemyInRange && !Input.GetButton("Fire2"))
         {
             Hit();
         }
-
-        
 	}
-    public bool getInRange()
-    {
-        return enemyInRange;
-        //return enemiesInRange.Count; int
-    }
-
-    public void DisableEffects()
-    {
-       //TODO WAT
-    }
 
     private void OnTriggerExit(Collider other)
     {
@@ -63,7 +47,6 @@ public class PlayerMelee : MonoBehaviour {
             enemiesInCollider.Remove(other.gameObject);
             if(enemiesInCollider==null)
                 enemyInRange = false;
-            
         }
     }
 
@@ -73,8 +56,6 @@ public class PlayerMelee : MonoBehaviour {
         if (other.gameObject.tag == "Enemy" && !other.isTrigger)
         {
             enemiesInCollider.Add(other.gameObject);
-            //enemy = GameObject.FindGameObjectWithTag("Enemy");
-           // enemyStats = other.GetComponent<EnemyStats>();
 
             enemyInRange = true;
         }
