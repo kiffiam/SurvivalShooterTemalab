@@ -6,6 +6,8 @@ using System;
 
 public class ShowScoresManager : MonoBehaviour {
 
+	int tenth;
+
 	public class person{
 		string name;
 		int score;
@@ -22,44 +24,67 @@ public class ShowScoresManager : MonoBehaviour {
 		}
 	}
 
-	public Text mycontent;
-	// Use this for initialization
+	List<person> list;
+
+	public Text mycontent_1;
+	public Text mycontent_2;
+	public Text mycontent_3;
+
 	void Awake () {
-		ShowScores ();
-	}
-	
-	// Update is called once per frame
-	void Update () {
-		
-	}
-		
-	public void ShowScores(){
+		tenth = 0;
+
 		string mynewtext = "";
 		string path = @"Assets\scores.txt";
 		string[] readText = System.IO.File.ReadAllLines(path);
-		List<person> list = new List<person> ();
+		list = new List<person> ();
 		foreach (string s in readText)
 		{
 			string[] tmp = s.Split (new System.Char[] {'\t'});
 			list.Add (new person(tmp[0],Int32.Parse(tmp[1])));
-			//mynewtext +=tmp[0]+"\t"+tmp[1];
 		}
-
-
 
 		list.Sort ((x,y) => y.getScore().CompareTo(x.getScore()));
 
+		ShowScores (tenth);
+	}
+
+	void Update () {
+		
+	}
+		
+	public void ShowScores(int tenth){
+		string mynewtext_1="";
+		string mynewtext_2="";
+		string mynewtext_3="";
+
 		int i = 0;
-		foreach (person p in list)
+		while(tenth*10+i < list.Count)
 		{
+			mynewtext_1 += (tenth*10+i+1).ToString() + "\n";
+			mynewtext_2 += list[tenth*10+i].getName() + "\n";
+			mynewtext_3 += list[tenth*10+i].getScore().ToString() + "\n";
 			i++;
-			mynewtext += "\t"+i+"\t\t\t\t\t\t\t"+p.getName()+"\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t"+p.getScore()+"\n";
 		}
-		mycontent.text = mynewtext;
+		mycontent_1.text = mynewtext_1;
+		mycontent_2.text = mynewtext_2;
+		mycontent_3.text = mynewtext_3;
 	}
 
     public void BackToMain() {
         UnityEngine.SceneManagement.SceneManager.LoadScene(0);
     }
 
+	public void Next(){
+		if (list.Count > (tenth + 1) * 10) {
+			tenth++;
+			ShowScores (tenth);
+		}
+	}
+
+	public void Back(){
+		if (tenth > 0) {
+			tenth--;
+			ShowScores (tenth);
+		}
+	}
 }

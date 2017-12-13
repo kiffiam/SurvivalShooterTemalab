@@ -14,6 +14,9 @@ public class PlayerManuScript : MonoBehaviour {
     float timer;
     float limit = 5f;
     
+	public Text damage_text;
+	public Text health_text;
+
 	// Use this for initialization
 	void Awake () {
         
@@ -27,12 +30,16 @@ public class PlayerManuScript : MonoBehaviour {
     public void Showed()
     {
         points.text = currentPointsToUse.ToString();
+		health_text.text = playerStats.startingHealth.ToString();
+		damage_text.text = playerMelee.damagePerHit.ToString ();
     }
 
 
     // Update is called once per frame
     void Update () {
         PointGiver();
+		health_text.text = playerStats.startingHealth.ToString();
+		damage_text.text = playerMelee.damagePerHit.ToString ();
 	}
 
 	public void AddDamagePoints(){
